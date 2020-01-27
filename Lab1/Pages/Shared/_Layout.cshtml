@@ -1,19 +1,31 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    DateTime date = DateTime.Today;
+}
+<!DOCTYPE html>
 <html lang="se">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/StyleSheet.css" />
-    <script src="~/js/JavaScript.js"></script>
 </head>
-    <body>
-        <h1>Min webbplats</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Startsida</a></li>
-                <li><a href="About">About</a></li>
-                <li><a href="Contact">Contact</a></li>
-            </ul>
-        </nav>
-        <main>@RenderBody()</main>
-    </body>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo"><a href="/"><img src="~/img/kobe-bryant-logo.png" alt="kobe-bryant-logo" /></a></div>
+            <div class="time"><span>Dagens datum är: @date.ToString("d")</span></div>
+        </div>
+        <div class="content">
+            <nav>
+                <ul>
+                    <a class="nav-item" href="/"><li>Start</li></a>
+                    <a class="nav-item" href="Razor"><li>Razor</li></a>
+                    <a class="nav-item" href="About"><li>Om mig</li></a>
+                </ul>
+            </nav>
+            <main>@RenderBody()</main>
+        </div>
+        <footer><h4>Av Fredric Färholt - Kontakta mig via e-post: frfr1800@student.miun.se</h4></footer>
+    </div>
+    <script src="~/js/JavaScript.js"></script>
+</body>
 </html>

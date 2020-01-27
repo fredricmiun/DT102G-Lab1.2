@@ -1,0 +1,35 @@
+﻿@page
+@model Lab1.indexModel
+@{
+    ViewData["Title"] = "Razor";
+
+    string[] courses = { "Datateknik GR (A), Introduktion till programmering i JavaScript", 
+        "Datateknik GR (A), Webbutveckling I", 
+        "Grafisk design GR (A), Typografi och form för webb",
+        "Datateknik GR (A), Digital bildbehandling för webb",
+        "Datateknik GR (B), Webbutveckling II",
+        "Datateknik GR (A), Databaser",
+        "Datateknik GR (B), Webbdesign för CMS",
+        "DT071G - Programmering i C#.NET",
+        "Datateknik GR (B), JavaScriptbaserad webbutveckling" 
+    };
+
+    var date = DateTime.Now;
+    int d = (int)System.DateTime.Now.DayOfWeek;
+}
+
+<h1><b>Razor!</b></h1>
+
+<h2><b>Information</b></h2>
+
+<p><b>Datum/klockslag:</b> @date</p>
+
+@{if (d == 1) { <p> Idag är det måndag! </p> } else { <p>Idag är det inte måndag!</p> } }
+
+<h2><b>Kurser jag läst</b></h2>
+<ul>
+    @foreach (var course in courses)
+    {
+        <li>@course</li>
+    }
+</ul>
